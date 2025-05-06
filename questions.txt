@@ -1,0 +1,144 @@
+What is the primary purpose of Active Directory?
+File encryption
+Centralized domain management service for authentication and authorization
+Network packet filtering
+Software deployment
+1
+In bash scripting, which symbol is required to access an existing variable's value?
+@
+$
+#
+%
+1
+What is a Group Policy Object (GPO) in Windows environments?
+A physical security device
+A container that holds policy settings
+A type of user account
+A network monitoring tool
+1
+Which of the following is NOT a Linux file system type mentioned in the course?
+ext4
+XFS
+NTFS
+APFS
+3
+What directory typically contains system configuration files in Linux?
+/var
+/etc
+/usr
+/conf
+1
+In PowerShell, which cmdlet is used to list available commands?
+List-Command
+Get-Command
+Find-Command
+Show-Command
+1
+Which of the following file permissions in Linux corresponds to the octal value 644?
+rw-r--r--
+rwxr--r--
+rw-rw-rw-
+rwxrwxrwx
+0
+What is the shebang line in a bash script?
+A line that marks the end of a script
+A line that defines the script version
+A line at the beginning that specifies which interpreter to use
+A line that imports external libraries
+2
+Which of these is a component of Active Directory?
+Domain Validator
+Domain Controller
+Domain Manager
+Domain Switcher
+1
+What command is used to change directory permissions in Linux?
+chperm
+chmod
+chown
+chmode
+1
+In Python, which of the following is an immutable data type?
+List
+Dictionary
+Set
+Tuple
+3
+What is the primary advantage of PowerShell over Command Prompt (CMD)?
+PowerShell is easier to learn
+PowerShell is object-oriented while CMD is text-based
+PowerShell is faster for all commands
+PowerShell has fewer security restrictions
+1
+Which directory in Linux contains device files?
+/dev
+/devices
+/sys
+/mnt
+0
+What does the NTFS feature "journaling" provide?
+Better compression ratios
+Improved reliability through tracking changes before committing
+Enhanced security through encryption
+Ability to store multiple operating systems
+1
+In bash, which loop structure would be most appropriate for iterating through a predefined range of numbers?
+until loop
+while loop
+for loop with a range
+foreach loop
+2
+Which of these is NOT a key component mentioned in the Group Policy section?
+Group Policy Container (GPC)
+Group Policy Template (GPT)
+Group Policy Navigator (GPN)
+Organizational Units (OUs)
+2
+What Python library is recommended in the course for packet manipulation?
+Requests
+Scapy
+Beautiful Soup
+Pandas
+1
+In PowerShell, what does the cmdlet "Get-Acl" do?
+Retrieves access control lists
+Gets account login information
+Lists all command line arguments
+Measures network latency
+0
+Which filesystem is described as "Flash-Friendly" and optimized for SSDs?
+ext4
+XFS
+F2FS
+NTFS
+2
+What are symbolic links in Linux identified by when using `ls -l`?
+'s' as the first character
+'l' as the first character
+'y' as the first character
+'k' as the first character
+1
+In Windows, which directory contains 64-bit system files despite its name?
+System64
+System32
+SysWOW64
+WinSystem
+1
+Which of these markup languages is mentioned as being used to create the course itself?
+Markdown
+LaTeX
+Org Mode
+HTML
+2
+What feature of Btrfs file system allows for point-in-time recovery?
+Journaling
+Snapshots
+Checksums
+Compression
+1
+Which command would you use to create a new virtual environment in Python?
+python -m venv myvenv
+python create-venv myvenv
+python -v newenv myvenv
+python --virtual myvenv
+0
