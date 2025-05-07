@@ -87,11 +87,11 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				}
 			} else {
 				// Submit answer
-				if m.selected == m.questions[m.current].CorrectAnswer {
+				if m.selected+1 == m.questions[m.current].CorrectAnswer {
 					m.feedback = "Correct!"
 					m.correct++
 				} else {
-					correct := m.questions[m.current].Options[m.questions[m.current].CorrectAnswer]
+					correct := m.questions[m.current].Options[m.questions[m.current].CorrectAnswer-1]
 					m.feedback = fmt.Sprintf("Incorrect. The answer is: %s", correct)
 				}
 				m.showResult = true
@@ -104,10 +104,10 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			if !m.showResult && !m.quizEnded {
 				m.selected = (m.selected + 1) % 4 // Wrap around
 			}
-		case "0", "1", "2", "3":
+		case "1", "2", "3", "4":
 			if !m.showResult && !m.quizEnded {
 				sel, _ := strconv.Atoi(msg.String())
-				m.selected = sel
+				m.selected = sel - 1
 			}
 		}
 	}
@@ -118,7 +118,7 @@ func (m Model) View() string {
 	if m.quizEnded {
 		// Calculate percentage
 		percentage := float64(m.correct) / float64(len(m.questions)) * 100
-		scoreText := fmt.Sprintf("Quiz Complete!\nScore: %d/%d (% .0f%%)\nPress Enter to exit.", m.correct, len(m.questions), percentage)
+		scoreText := fmt.Sprintf("Quiz Complete!\nScore: %d/%d (%.0f%%)\nPress Enter to exit.", m.correct, len(m.questions), percentage)
 		return scoreStyle.Render(scoreText)
 	}
 
@@ -135,12 +135,12 @@ func (m Model) View() string {
 		}
 		// Include current score in feedback
 		percentage := float64(m.correct) / float64(m.current+1) * 100
-		s.WriteString(style.Render(fmt.Sprintf("%s\nCurrent Score: %d/%d (% .0f%%)", m.feedback, m.correct, len(m.questions), percentage)))
+		s.WriteString(style.Render(fmt.Sprintf("%s\nCurrent Score: %d/%d (%.0f%%)", m.feedback, m.correct, len(m.questions), percentage)))
 		s.WriteString("\nPress Enter to Continue...\n")
 	} else {
 		// Display options
 		for i, option := range m.questions[m.current].Options {
-			prefix := fmt.Sprintf("%d. ", i)
+			prefix := fmt.Sprintf("%d. ", i+1)
 			if i == m.selected {
 				s.WriteString(selectedOptionStyle.Render(prefix + option))
 			} else {
@@ -148,7 +148,7 @@ func (m Model) View() string {
 			}
 			s.WriteString("\n")
 		}
-		s.WriteString("\nUse 0-3 or arrow keys to select, Enter to submit, q to quit.\n")
+		s.WriteString("\nUse 1-4 or arrow keys to select, Enter to submit, q to quit.\n")
 	}
 
 	return s.String()
@@ -182,7 +182,7 @@ func readQuestions(filename string) ([]Question, error) {
 			optionIndex++
 		case 5: // Correct answer index
 			correct, err := strconv.Atoi(line)
-			if err != nil || correct < 0 || correct > 3 {
+			if err != nil || correct < 1 || correct > 4 {
 				return nil, fmt.Errorf("Invalid correct answer index at line %d: %s", lineNum+1, line)
 			}
 			currentQuestion.CorrectAnswer = correct
