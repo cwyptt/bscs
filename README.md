@@ -8,7 +8,7 @@ SysAdminQuiz is a terminal-based multiple-choice quiz application built in Go us
 - A `questions.txt` file in the same directory as the executable, formatted with 6 lines per question:
   - Line 1: Question text
   - Lines 2–5: Four answer options
-  - Line 6: Correct answer index (0, 1, 2, or 3)
+  - Line 6: Correct answer index (1, 2, 3, or 4)
 - A terminal that supports ANSI colors (most modern terminals do).
 
 ## How to run
